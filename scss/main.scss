@@ -1,0 +1,6 @@
+$primary-color: #444;
+// compiling into dist folder into css, because we have sass script running npm run sass, see package.json
+body {
+    background-color: $primary-color;
+    color: #f1f1f1;
+}
