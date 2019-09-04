@@ -1,6 +1,78 @@
-$primary-color: #444;
-// compiling into dist folder into css, because we have sass script running npm run sass, see package.json
+@import 'config';
+
+* {
+    box-sizing: border-box;
+}
+
 body {
+    @include background;
     background-color: $primary-color;
     color: #f1f1f1;
+    height: 100%;
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5;
+}
+
+//Headings
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 6rem;
+    }
+
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        //lighten is a sass function, takes in two params (primary/main color, 2) 
+        //second param is how much you want to lighten the background color.
+        //we wrapped the background in rgba so that we can put a photo under the background and you will be able
+        //to see the photo
+        background: rgba(lighten($primary-color, 2), 0.5);
+    }
+}
+
+a,i {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    //z-index is how close to you an element is to you
+    z-index: 2;
+    width: 100%;
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+main {
+    padding: 4rem;
+    height: 100%;
+
+    .icons {
+        margin-top: 1rem;
+
+        i {
+            padding: 0.4rem;
+
+            &:hover {
+                color: $secondary-color;
+                //bringing in mixin from top
+                @include easeOut()
+            }
+        }
+    }
+    //selecting any elements in main with the id of home, (which in our case is just main)
+    &#home {
+        //we don't want any scrollbars on home page
+        overflow: hidden;
+        h1 {
+            margin-top: 20vh;//viewport height 20 out of a 100
+        }
+    }
 }

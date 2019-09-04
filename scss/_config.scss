@@ -1,0 +1,43 @@
+//a partial file starts with one underscore _ its where we are storing our variables and mixins
+
+//creating variables and mixins so we can reuse them throughout our code.
+// $body-bg: transparent; 
+$primary-color: #444;
+$secondary-color: #eece1a;
+$show-home-image: true;
+$home-image: url(/dist/img/portfolio-background.png);
+$background-opacity: 0.9;
+// compiling into dist folder into css, because we have sass script running npm run sass, see package.json
+
+@mixin easeOut {
+    //transitions in css is taking time do do something.
+    //it can be bring in something from somewhere, changing colors, fading things in and out
+    transition: all 0.5s ease-out;
+}
+
+@mixin background {
+    //if show-home-image is true then display home-image
+    @if $show-home-image {
+        &#bg-img {
+            // background-color: red;
+            // background-image: url(../dist/img/0101-background.jpg);
+            background: $home-image; //no-repeat center fixed;
+            // background-size: cover;
+            background-attachment: fixed;
+            background-size: cover;
+            //pseudo element instead of having a div with a class
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                //red,green,blue,alpha represents the opacity
+                background: rgba($primary-color, $background-opacity);
+            }
+        }
+
+    }
+}
