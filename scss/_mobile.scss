@@ -45,6 +45,19 @@
             height: 165px;
         }
     }
+
+    .about-info {
+        //changing grid template areas at mediaMd media query
+        //grid-template-areas are very very powerful
+        grid-template-areas: 
+        'bioimage'
+        'bio'
+        'job1'
+        'job2'
+        'job3';
+        //we are sting them on top of eachother so now we want one fractional 1fr instead of 3.
+        grid-template-columns: 1fr;
+    }
 }
 //smartphones
 @include mediaSm {

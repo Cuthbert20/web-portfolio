@@ -1,6 +1,6 @@
 @import 'config';
 @import 'menu';
-@import 'mobile';
+
 
 * {
     box-sizing: border-box;
@@ -54,7 +54,10 @@ header {
 
 main {
     padding: 4rem;
-    height: 100%;
+    // height: 100%;
+    //using calc built in func telling the main to display 100vh minus the height of the footer which is 60px in height.
+    //this creates a sticky footer to create a sticky footer you just set the height to 100vh minus the height of the footer.
+    min-height: calc(100vh - 60px);
 
     .icons {
         margin-top: 1rem;
@@ -78,3 +81,60 @@ main {
         }
     }
 }
+//using grid template areas, it will be a 3 fractional grid.
+.about-info {
+    display: grid;
+    //putting gaps between our grids
+    grid-gap: 30px;
+    //visual representation of what you want to display
+    grid-template-areas: 
+    "bioimage bio bio"
+    "job1 job2 job3";
+    //instead of setting 1fr 1fr 1fr we can use the repeat func and sass how many times to repeat the 1fr.
+    grid-template-columns: repeat(3, 1fr);
+//nesting in .about-info class
+    //creating grid areas
+.bio-image {
+    //bioimage is coming from our grid-template-areas:
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+}
+
+.bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+}
+
+.job-1 {
+    grid-area: job1;
+}
+
+.job-2 {
+    grid-area: job2;
+}
+
+.job-3 {
+    grid-area: job3;
+}
+
+.job {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+}
+}
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    //using darken function on background color.
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
+
+}
+//putting media queries at the bottom cause you want them to run after the inital css.
+@import 'mobile';
+
