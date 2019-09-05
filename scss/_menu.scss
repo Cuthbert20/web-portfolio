@@ -1,0 +1,147 @@
+//Building out menu button
+.menu-btn {
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    top: 35px;
+    cursor: pointer;
+    @include easeOut;
+
+    //styling the divs inside of the div with a class of .menu-btn
+    .btn-line {
+        //we are giving each line in our menu button a width and a height
+        width: 28px;
+        height: 3px;
+        //space inbetween
+        margin: 0 0 5px 0;
+        background: #f1f1f1;
+        @include easeOut;
+    }
+
+    //Rotate Into X with Menu Lines that are defined above in our .btn-line class
+    &.close {
+        transform: rotate(180deg);
+
+        //using css transition to change 3 lines to X to make this all work we needed the javascript in main
+        //which has our eventListner for our click and our classList.add & .removing classes when menu-btn is clicked.
+        .btn-line {
+            //this is we are going to handle each of the 3 lines from the .btn-line menu.
+            //Line 1 - Rotate using nth-cild
+            &:nth-child(1) {
+                // background: pink;
+                // see details at MDN transform
+                transform: rotate(45deg) translate(5px, 5px)
+;
+            }
+            //Line 2 - Hide
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            //Line 3 -Rotate
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px)
+            }
+        }
+    }
+}
+
+//Creating Menu Overlay with porfile image and menu
+.menu {
+    position: fixed;
+    top:0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+    //when show class is added with our event listener we change visibility to visible
+    &.show {
+        visibility: visible;
+    }
+    //cool trick instead of .menu-branding you can use the & which represents the .menu.
+    &-branding, &-nav {
+        display: flex;
+        //look up flex
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+    &-nav {
+        margin: 0;
+        padding: 0;
+        //darkening the parmary-color using darken which is a built in sass function
+        background: darken($primary-color, 5);
+        //removing bullet points on li
+        list-style: none;
+        //translate cd on mdn for more info
+        transform: translate3d(0, -100%, 0);
+        @include easeOut;
+        //when show class is applied
+        &.show {
+            //sliding in from top
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    //Branding Side
+    &-branding {
+        //can still see through background cause the menu class has the opacity value.
+        background: $primary-color;
+        transform: translate3d(0, 100%, 0);
+        @include easeOut;
+
+        &.show {
+            //Slide in from bottom
+            transform: translate3d(0, 0, 0);
+        }
+
+        .portrait {
+            width: 250px;
+            height: 250px;
+            background: url('/dist/img/profile-pic.jpeg');
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+            background-size: cover;
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(600px, 0, 0);
+        @include easeOut;
+
+        &.show {
+            //slide in from right
+            transform: translate3d(0, 0, 0);
+        }
+        &.current > a {
+            color: $secondary-color;
+        }
+    }
+
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        //1rem top and bottom padding 0 left & right.
+        padding: 1rem 0;
+        font-weight: 400;
+        color: #f1f1f1;
+        text-decoration: none;
+        @include easeOut;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+//like in javascript for(let i = 0; i < 4; i++){}
+//Delay each nav item slide by 0.1s with sass for loop
+@for $x from 1 through 4 {
+    //#{$x} is like a temperal literal in es6
+    .nav-item:nth-child(#{$x}){
+        transition-delay: $x * 0.1s;
+    }
+}
