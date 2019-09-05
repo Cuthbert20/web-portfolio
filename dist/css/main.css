@@ -115,8 +115,8 @@
     transform: translate3d(100%, 0, 0); }
     .menu-branding .portrait {
       background: url("/dist/img/mini-profile.jpg");
-      width: 150px;
-      height: 150px; } }
+      width: 165px;
+      height: 165px; } }
 
 @media screen and (max-width: 500px) {
   main#home h1 {
