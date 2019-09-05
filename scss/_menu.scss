@@ -14,7 +14,7 @@
         height: 3px;
         //space inbetween
         margin: 0 0 5px 0;
-        background: #f1f1f1;
+        background: set-text-color($primary-color);
         @include easeOut;
     }
 
@@ -128,7 +128,7 @@
         //1rem top and bottom padding 0 left & right.
         padding: 1rem 0;
         font-weight: 400;
-        color: #f1f1f1;
+        color: set-text-color($primary-color);
         text-decoration: none;
         @include easeOut;
 
