@@ -126,6 +126,53 @@ main {
 }
 }
 
+//Work/Projects
+.projects {
+    display: grid;
+    //creating a gap between each grid section.
+    grid-gap: 0.7rem;
+    //I will end up changing because I don't have 5 projects to display.
+    grid-template-columns: repeat(3, 1fr);
+    img {
+        width: 100%;
+        border: 3px #f1f1f1 solid;
+
+        &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            //including our mixin on our hover
+            @include easeOut;
+        }
+    }
+}
+
+//Button Styles for work/project page
+.btn {
+    //displaying block so that the icons are stacked on top of eachother.
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color($secondary-color);
+    }
+}
+
+.btn-dark {
+    //extending the .btn class I created above.
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #f1f1f1;
+}
+
+.btn-light {
+    //extending the .btn class I created above.
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #333;
+}
+
 #main-footer {
     text-align: center;
     padding: 1rem;
