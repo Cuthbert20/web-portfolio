@@ -1,15 +1,16 @@
+<!-- styling with flexbox -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Web Dev Portfolio</title>
+    <title>Contact Me</title>
     <script src="https://kit.fontawesome.com/f3b491a0ae.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body id="bg-img">
+<body >
     <header>
         <div class="menu-btn">
             <div class="btn-line"></div>
@@ -22,7 +23,7 @@
                 <div class="portrait"></div>
                 </div>
                 <ul class="menu-nav">
-                    <li class="nav-item current">
+                    <li class="nav-item ">
                         <a href="index.html" class="nav-link">
                         Home</a>
                     </li>
@@ -34,7 +35,7 @@
                         <a href="work.html" class="nav-link">
                         My Work</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item current">
                         <a href="contact.html" class="nav-link">
                         How To Reach Me</a>
                     </li>
@@ -42,22 +43,28 @@
         </nav>
     </header>
 
-    <main id='home'>
+    <main id='contact'>
         <h1 class="lg-heading">
-            Spencer <span class="text-secondary" >Knowlton</span> 
+            Contact <span class="text-secondary" >Me</span> 
         </h1>
         <h2 class='sm-heading'>
-            Full Stack Web Developer, Designer, & Programmer.
+            Below is how you can reach me
         </h2>
-        <div class="icons">
-            <i class="fab fa-react fa-2x"></i>
-            <i class="fab fa-js-square fa-2x"></i>
-            <i class="fab fa-css3-alt fa-2x"></i>
-            <i class="fab fa-html5 fa-2x"></i>
-            <i class="fab fa-github-square fa-2x"></i>
+        <div class="boxes">
+            <!-- styling with flexbox -->
+            <div>
+                <span class="text-secondary">Email:
+                </span> knowltonspencer@gmail.com
+            </div>
+            <div>
+                <span class="text-secondary">Phone:
+                </span> 435-610-0129
+            </div>
         </div>
     </main>
-
+    <footer id='main-footer'>
+        Copyright &copy; 2019
+    </footer>
     <script src="js/main.js"></script>
 </body>
 </html>

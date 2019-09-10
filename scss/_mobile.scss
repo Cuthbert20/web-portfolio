@@ -1,6 +1,7 @@
 //this is where we are going to create our media queries for mobile responsive design.
 //Widescreens
 @include mediaXl {
+    //setting gird-template-columns on work.html to display 4 across when on xl screens
     .projects {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -76,7 +77,7 @@
     }
 
     .projects {
-        //no need to repeat because we are just display a single column
+        //no need to repeat because we are just display a single column 
         grid-template-columns: 1fr;
     }
 }
