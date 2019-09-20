@@ -102,7 +102,7 @@ body {
   font-family: 'Comfortaa', cursive;
   line-height: 1.5; }
   body#bg-img {
-    background: url(/img/portfolio-background.png);
+    background: url(/dist/img/portfolio-background.png);
     background-attachment: fixed;
     background-size: cover; }
     body#bg-img:after {
@@ -262,7 +262,7 @@ main {
     height: 25vh;
     transform: translate3d(100%, 0, 0); }
     .menu-branding .portrait {
-      background-image: url("/img/mini-profile.jpg");
+      background-image: url("/dist/img/mini-profile.jpg");
       width: 165px;
       height: 165px; }
   .about-info {
