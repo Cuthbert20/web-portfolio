@@ -32,7 +32,7 @@ h1, h2, h3 {
         //second param is how much you want to lighten the background color.
         //we wrapped the background in rgba so that we can put a photo under the background and you will be able
         //to see the photo
-        background: rgba(lighten($primary-color, 2), 0.5);
+        background: rgba(lighten($primary-color, 5), 0.5);
     }
 }
 
@@ -193,7 +193,7 @@ main {
 .btn-dark {
     //extending the .btn class I created above. so all styles on .btn selector applies to .btn-dark
     @extend .btn;
-    background: darken($primary-color, 50);
+    background: darken($primary-color, 10);
     color: #f1f1f1;
 }
 
